@@ -22,13 +22,14 @@ class APIKeyError(Exception):
 class TMDB(object):
     headers = {'Content-Type': 'application/json',
                'Accept': 'application/json',
-               'Connection': 'close'}
+               'Connection': 'close',
+               'origin': 'https://developer.themoviedb.org'}
     BASE_PATH = ''
     URLS = {}
 
     def __init__(self):
         from . import API_VERSION, REQUESTS_SESSION, REQUESTS_TIMEOUT
-        self.base_uri = 'https://api.themoviedb.org'
+        self.base_uri = 'https://try.readme.io/https://api.themoviedb.org'
         self.base_uri += '/{version}'.format(version=API_VERSION)
         self.session = REQUESTS_SESSION
         self.timeout = REQUESTS_TIMEOUT
